@@ -4,4 +4,4 @@ def uppercase(str):
     for char in str:
         uppercase_char = chr(ord(char) - ord('a') + ord('A')) if 'a' <= char <= 'z' else char
         output += uppercase_char
-    print(output)
+    print("{}".format(output))
