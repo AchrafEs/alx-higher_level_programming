@@ -1,6 +1,7 @@
 0x01-python-if_else_loops_functions
 
 1. 'if' statements:
+
 	if statements are used to make decisions based on certain conditions.
 	They allow your code to perform different actions depending on whether a condition is true or false.
 	The basic syntax of an if statement in Python is as follows:
@@ -12,6 +13,7 @@
 	You can also include an optional else statement to specify an alternative code block to execute when
 	the condition is False.
 2. 'else' statements:
+
 	else statements are used in conjunction with if statements to provide an alternative code block
 	to execute when the condition in the if statement is False.
 	The basic syntax of an if-else statement in Python is as follows:
@@ -24,6 +26,7 @@
 	The code block under the else statement is executed only if the condition in the
 	if statement is evaluated as False.
 3. Loops:
+
 	Loops are used to repeatedly execute a block of code until a certain condition is met.
 	In Python, there are two types of loops: for loops and while loops.
 		- for loops: for loops are used to iterate over a sequence
