@@ -1,2 +1,3 @@
 #!/usr/bin/python3
-import sys; sys.stdout.write("#pythoniscool\n")
+import ctypes
+ctypes.CDLL("libc.so.6").printf(b"#pythoniscool\n")
