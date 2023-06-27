@@ -15,3 +15,14 @@ class Square:
         Initializes a new instance of the Square class.
         """
         pass
+def my_function():
+    """
+    A function that performs a specific task.
+
+    Parameters:
+        None
+
+    Returns:
+        None
+    """
+    pass
