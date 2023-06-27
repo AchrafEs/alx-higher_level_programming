@@ -8,8 +8,8 @@ To define a `class` in Python, you use the class keyword followed by the class n
 of a class definition:
 
 ```
-	class MyClass:
-	pass
+class MyClass:
+pass
 ```
 In this example, `MyClass` is the name of the class. The pass statement is a placeholder, indicating that
 the class doesn't have any attributes or methods defined yet.
