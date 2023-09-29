@@ -11,17 +11,15 @@ import requests
 import sys
 
 if __name__ == "__main__":
-    # Check if a username and personal access token are provided as arguments
     if len(sys.argv) != 3:
         sys.exit(1)
 
-    username = "AchrafEs"
-    access_token = "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"
+    username = sys.argv[1]
+    access_token = sys.argv[2]
 
     # Construct the URL for the authenticated user's GitHub information
     url = 'https://api.github.com/user'
 
-    # Set up Basic Authentication with your username and personal access token
     auth = (username, access_token)
 
     try:
