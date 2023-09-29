@@ -12,7 +12,7 @@ import urllib.request
 import sys
 
 if __name__ == "__main__":
-    # Check if a URL is provided as an argument
+
     if len(sys.argv) != 2:
         print("Usage: {} <URL>".format(sys.argv[0]))
         sys.exit(1)
