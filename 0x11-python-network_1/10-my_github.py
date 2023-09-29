@@ -10,29 +10,31 @@ Authentication to access your GitHub information and displays your user ID.
 import requests
 import sys
 
-try:
-    letter = sys.argv[1]
-except IndexError:
-    letter = ""
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        sys.exit(1)
 
-headers = {"Content-Type": "application/json"}
-data = {"q": letter}
-response = requests.post(
-        "http://0.0.0.0:5000/search_user", headers=headers, json=data)
+    username = sys.argv[1]
+    access_token = sys.argv[2]
 
-# Check if the response body is properly JSON formatted and not empty.
-if response.ok and response.headers["Content-Type"] == "application/json":
+    # Construct the URL for the authenticated user's GitHub information
+    url = 'https://api.github.com/user'
+
+    auth = (username, access_token)
+
     try:
-        json_data = response.json()
+        # Send a GET request to the GitHub API
+        response = requests.get(url, auth=auth)
 
-        # If the JSON is empty, display No result.
-        if len(json_data) == 0:
-            print("No result")
+        # Check for a successful response (status code 200)
+        if response.status_code == 200:
+            user_info = response.json()
+            user_id = user_info.get('id')
+            if user_id:
+                print("Your GitHub user ID is: {}".format(user_id))
+            else:
+                print("User ID not found in the response.")
         else:
-            # Display the id and name of the user like this: [<id>] <name>
-            for user in json_data:
-                print("[{}] {}".format(user["id"], user["name"]))
-    except json.JSONDecodeError as e:
-        print("Not a valid JSON: {}".format(e))
-else:
-    print("Error: {}".format(response.status_code))
+            print("Error: HTTP Status Code {}".format(response.status_code))
+    except requests.exceptions.RequestException as e:
+        print("Error: {}".format(e))
