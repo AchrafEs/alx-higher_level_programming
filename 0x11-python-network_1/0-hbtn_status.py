@@ -17,12 +17,9 @@ if __name__ == "__main__":
             data = response.read()
             print("Body response:")
             print("\t- type: {}".format(type(data)))
-            print("\t- content: {}".format(data.decode('utf-8')))
+            print("\t- content: b'{}'".format(data.decode('utf-8')))
             print("\t- utf8 content: {}".format(data.decode('utf-8')))
     except urllib.error.HTTPError as e:
         print("Error code: {}".format(e.code))
     except urllib.error.URLError as e:
         print("Error: {}".format(e.reason))
-
-if __name__ == "__main__":
-    print(__doc__)
