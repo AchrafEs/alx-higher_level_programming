@@ -1,3 +1,3 @@
 #!/bin/bash
 # Send a request to a URL and display only the status code
-(curl -s -o /dev/null -w "%{http_code}" "$1"; [ $? -eq 0 ] && echo "") | tail -n 1
+[ $# -ne 1 ] && echo "Usage: $0 <URL>" || response=$(curl -s -o /dev/null -w "%{http_code}" "$1") && echo "Status Code: $response"
